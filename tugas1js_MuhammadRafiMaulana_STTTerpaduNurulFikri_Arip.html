@@ -1,0 +1,67 @@
+<script lang="text/javascript">
+    //belajar variabel dan tipe data
+var pegawai = 'ridwan';
+var jabatan = 'manager';
+var status = 'menikah';
+
+if(jabatan == 'manager'){
+    gaji = 15000000;
+}
+else if(jabatan == 'asisten manajer'){
+    gaji = 10000000;
+}
+else if(jabatan == 'staff'){
+    gaji = 5000000;
+}
+tunjab = gaji / 15;
+bpjs = gaji / 10;
+tunkel = (jabatan=='manager') ? gaji / 20 : 0;
+totgaji = gaji + tunkel + tunjab + bpjs;
+//cetak
+document.write("<table>");
+document.write("<thead>");
+document.write("<tr>");
+document.write("<th>Tabel</th>");
+document.write("</tr>");
+document.write("</thead>");
+document.write("<tbody>");
+document.write("<tr>");
+document.write("<td>pegawai: "+ pegawai);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>jabatan: "+ jabatan);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>status: "+ status);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<th>data</th>");
+document.write("<th>keterangan</th>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>gaji pokok: "+ gaji );
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>tunjangan jabatan: " + tunjab);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>bpjs: " + bpjs);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>tunkel: " + tunkel);
+document.write("</td>");
+document.write("</tr>");
+document.write("</tbody>");
+document.write("<tfoot>");
+document.write("<tr>");
+document.write("<th>total gaji: " + totgaji);
+document.write("</th>");
+document.write("</tr>");
+document.write("</tfoot>");
+</script>
