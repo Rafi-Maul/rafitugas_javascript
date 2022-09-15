@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Pegawai</title>
+</head>
+<body>
+    <h2 align="center">Data Pegawai</h2>
+        <table align="center">
+            <thead bgcolor="darkslateblue">
+                <tr>
+                    <th>N0</th>
+                    <th>NAMA</th>
+                    <th>JABATAN</th>
+                    <th>AGAMA</th>
+                    <th>GAJI POKOK</th>
+                    <th>TUNJANGAN JABATAN</th>
+                    <th>TUNJANGAN KESEHATAN</th>
+                    <th>GAJI KOTOR</th>
+                    <th>ZAKAT PROFESI</th>
+                    <th>TAKE HOME PAY</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <script>
+                    const formatRp = (e) => {
+                        return new Intl.NumberFormat("id-ID").format(e);
+                    };
+                    // mendeklarasikan variable jabatan dan gapok
+                    let jabatan = "Manager";
+                    let gapok = 0;
+                    for (let numbers = 1; numbers <= 100; numbers++) {
+                        if (numbers > 75 && numbers <= 100) jabatan = "Staff";
+                        else if (numbers > 50 && numbers <= 75) jabatan = "Super Visor";
+                        else if (numbers > 25 && numbers <= 50) jabatan = "Asisten Manager";
+                        else jabatan = "Manager";
+                        switch (jabatan) {
+                            case "Staff": gapok = 4000000; break;
+                            case "Super Visor": gapok = 7000000; break;
+                            case "Asisten Manager": gapok = 10000000; break;
+                            case "Manager": gapok = 15000000; break;
+                            default: gapok = 15000000; break;
+                        }
+                        let tunjab = gapok * 0.2;
+                        let tunkes = gapok * 0.1;
+                        let gator = gapok + tunjab + tunkes;
+                        let agama = "Muslim";
+                        numbers % 2 == 1 ? agama : agama = "Non Muslim";
+                        const warna = agama === "Muslim" ? "gold" : "darkturquoise";
+                        let zaprof = 0;
+                        if (agama === "Muslim" && gator >= 7000000) zaprof = gator * 0.025;
+                        else zaprof = 0;
+                        const takeHomePay = gator - zaprof;
+                        document.write(`
+                            <tr bgcolor=${warna}>
+                                <td class="text-center">${numbers}</td>
+                                <td>Pegawai${numbers}</td>
+                                <td>${jabatan}</td>
+                                <td>${agama}</td>
+                                <td class="text-end">Rp. ${formatRp(gapok)}</td>
+                                <td class="text-end">Rp. ${formatRp(tunjab)}</td>
+                                <td class="text-end">Rp. ${formatRp(tunkes)}</td>
+                                <td class="text-end">Rp. ${formatRp(gator)}</td>
+                                <td class="text-end">Rp. ${formatRp(zaprof)}</td>
+                                <td class="text-end">Rp. ${formatRp(takeHomePay)}</td>
+                            </tr>
+                        `)
+                    }
+                </script>
+            </tbody>
+        </table>
+</body>
+</html>
